@@ -97,8 +97,8 @@ module Danger
       command << " --ignore-path #{ignore_file}" if ignore_file
 
       puts "pwd: \"#{Dir.pwd}\""
-      puts "Command: \"#{command} #{file}\""
-      result = `#{command} #{file}`
+      puts "Command: \"#{command} \"#{file}\""
+      result = `#{command} "#{file}"`
 
       puts result
 
