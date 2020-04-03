@@ -23,6 +23,10 @@ module Danger
     # @return [String]
     attr_accessor :ignore_file
 
+    # An path to files to lint
+    attr_accessor :lint_path
+
+
     # Enable filtering
     # Only show messages within changed files.
     # @return [Boolean]
@@ -87,6 +91,7 @@ module Danger
     #
     # return [Hash]
     def run_lint(bin, file)
+      file = lint_path if lint_path
       command = "#{bin} -f json"
       command << " -c #{config_file}" if config_file
       command << " --ignore-path #{ignore_file}" if ignore_file
